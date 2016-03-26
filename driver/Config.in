@@ -1,0 +1,6 @@
+config BR2_PACKAGE_HD44780
+	bool "simple drive for a HD44780 display"
+	depends on BR2_LINUX_KERNEL
+	help
+	  Simple driver to control a HD44780 display
+
