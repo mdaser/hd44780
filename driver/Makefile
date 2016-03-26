@@ -1,8 +1,12 @@
+ARCH  := arm
+CROSS_COMPILE:=arm-none-eabi-
+KDIR:=/home/md/embedded/raspi/linux
+
+
 ifneq ($(KERNELRELEASE),)
 obj-m	:= hd44780.o
 
 else
-KDIR	:= /lib/modules/$(shell uname -r)/build
 PWD	:= $(shell pwd)
 
 default:
