@@ -28,7 +28,7 @@
 #include <linux/ctype.h>
 #include <linux/uaccess.h>
 
-static dev_t hd44780_dev_number = MKDEV(248, 0);
+static dev_t hd44780_dev_number = MKDEV(181, 0);
 
 static struct cdev *driver_object;
 static struct class *hd44780_class;
