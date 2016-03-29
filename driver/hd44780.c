@@ -160,9 +160,10 @@ static void NibbleWrite(enum h44780_rs reg, int value)
 
 static void LcdWrite(enum h44780_rs reg, int value)
 {
-	pr_info("hd44780: %s 0x%02x  [%c%c%c%c %c%c%c%c]\n",
+	pr_info("hd44780: %s 0x%02x  %c [%c%c%c%c %c%c%c%c]\n",
 		(reg ? "DTA" : "CMD"),
 		value,
+		((reg == rs_data && isprint(value)) ? value : ' '),
 		(value & BIT(7) ? '*' : '.'),
 		(value & BIT(6) ? '*' : '.'),
 		(value & BIT(5) ? '*' : '.'),
@@ -253,7 +254,7 @@ free7:	gpio_free(port_rs);
 
 static int display_exit(void)
 {
-	pr_info("hd44780: display_exit()\n");
+	pr_info("hd44780: display_exit\n");
 
 	gpio_free(port_d4);
 	gpio_free(port_d5);
